@@ -1,0 +1,94 @@
+version: 1
+swarm:
+  name: "<%= Rails.application.class.module_parent_name %> Rails Development Team"
+  main: architect
+  instances:
+    architect:
+      description: "Rails architect coordinating <%= @api_only ? 'API' : 'full-stack' %> development for <%= Rails.application.class.module_parent_name %>"
+      directory: .
+      model: claude-3-5-haiku-20250110
+      connections: [<%= agents.reject { |a| a == 'architect' }.join(', ') %>]
+      prompt_file: .claude-on-rails/prompts/architect.md
+      vibe: true
+    
+    models:
+      description: "ActiveRecord models, migrations, and database optimization specialist"
+      directory: ./app/models
+      model: claude-3-5-haiku-20250110
+      allowed_tools: [Read, Edit, Write, Bash, Grep, Glob, LS]
+      prompt_file: .claude-on-rails/prompts/models.md
+      
+    controllers:
+      description: "Rails controllers, routing, and request handling specialist"
+      directory: ./app/controllers
+      model: claude-3-5-haiku-20250110
+      connections: [services<%= ', api' if @api_only %>]
+      allowed_tools: [Read, Edit, Write, Bash, Grep, Glob, LS]
+      prompt_file: .claude-on-rails/prompts/controllers.md
+<% unless @api_only %>
+    
+    views:
+      description: "Rails views, layouts, partials, and asset pipeline specialist"
+      directory: ./app/views
+      model: claude-3-5-haiku-20250110
+      connections: [<%= 'stimulus' if @has_turbo %>]
+      allowed_tools: [Read, Edit, Write, Bash, Grep, Glob, LS]
+      prompt_file: .claude-on-rails/prompts/views.md
+<% end %>
+<% if @api_only %>
+    
+    api:
+      description: "RESTful API design, serialization, and versioning specialist"
+      directory: ./app/controllers/api
+      model: claude-3-5-haiku-20250110
+      allowed_tools: [Read, Edit, Write, Bash, Grep, Glob, LS]
+      prompt_file: .claude-on-rails/prompts/api.md
+<% end %>
+<% if @has_graphql %>
+    
+    graphql:
+      description: "GraphQL schema, resolvers, and mutations specialist"
+      directory: ./app/graphql
+      model: claude-3-5-haiku-20250110
+      allowed_tools: [Read, Edit, Write, Bash, Grep, Glob, LS]
+      prompt_file: .claude-on-rails/prompts/graphql.md
+<% end %>
+<% if @has_turbo %>
+    
+    stimulus:
+      description: "Stimulus.js controllers and Turbo integration specialist"
+      directory: ./app/javascript
+      model: claude-3-5-haiku-20250110
+      allowed_tools: [Read, Edit, Write, Bash, Grep, Glob, LS]
+      prompt_file: .claude-on-rails/prompts/stimulus.md
+<% end %>
+    
+    services:
+      description: "Service objects, business logic, and design patterns specialist"
+      directory: ./app/services
+      model: claude-3-5-haiku-20250110
+      allowed_tools: [Read, Edit, Write, Bash, Grep, Glob, LS]
+      prompt_file: .claude-on-rails/prompts/services.md
+      
+    jobs:
+      description: "Background jobs, ActiveJob, and async processing specialist"
+      directory: ./app/jobs
+      model: claude-3-5-haiku-20250110
+      allowed_tools: [Read, Edit, Write, Bash, Grep, Glob, LS]
+      prompt_file: .claude-on-rails/prompts/jobs.md
+<% unless @skip_tests %>
+    
+    tests:
+      description: "<%= @test_framework %> testing, factories, and test coverage specialist"
+      directory: ./<%= @test_framework == 'RSpec' ? 'spec' : 'test' %>
+      model: claude-3-5-haiku-20250110
+      allowed_tools: [Read, Edit, Write, Bash, Grep, Glob, LS]
+      prompt_file: .claude-on-rails/prompts/tests.md
+<% end %>
+    
+    devops:
+      description: "Deployment, Docker, CI/CD, and production configuration specialist"
+      directory: ./config
+      model: claude-3-5-haiku-20250110
+      allowed_tools: [Read, Edit, Write, Bash, Grep, Glob, LS]
+      prompt_file: .claude-on-rails/prompts/devops.md
