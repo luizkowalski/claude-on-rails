@@ -154,8 +154,8 @@ Customize agent behavior by editing prompts in `.claude-on-rails/prompts/`:
 
 - Ruby 2.7+
 - Rails 6.0+
-- [claude-swarm](https://github.com/parruda/claude-swarm) gem
-- Claude Code CLI
+- Claude Code CLI (`npm install -g @anthropic-ai/claude-code`)
+- claude_swarm gem (automatically installed as a dependency)
 
 ## Examples
 
