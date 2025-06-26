@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2025-01-26
+
+### Fixed
+- Only create swarm agents for directories that actually exist
+- Changed model from full model name to claude-swarm compatible names (opus/haiku/sonnet)
+- Fixed controllers connections to only include services if directory exists
+
+### Changed
+- Default model is now "opus" for all agents
+- Generator now shows which agents will be created during analysis
+
+### Improved
+- Swarm configuration template now checks for directory existence before creating agents
+- Better handling of optional directories like app/services, app/jobs, etc.
+
 ## [0.1.2] - 2025-01-26
 
 ### Fixed

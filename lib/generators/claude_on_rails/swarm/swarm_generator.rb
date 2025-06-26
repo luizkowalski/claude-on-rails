@@ -32,6 +32,12 @@ module ClaudeOnRails
         say "Project type: #{@api_only ? 'API-only' : 'Full-stack Rails'}", :cyan
         say "Test framework: #{@test_framework}", :cyan if @test_framework
         say "GraphQL detected: #{@has_graphql ? 'Yes' : 'No'}", :cyan
+        
+        # Show which agents will be created
+        say "\nAgents to be created:", :yellow
+        agents.each do |agent|
+          say "  - #{agent}", :cyan
+        end
       end
       
       def create_swarm_config
@@ -73,16 +79,24 @@ module ClaudeOnRails
       
       def build_agent_list
         list = ["architect"]
-        list << "models" 
-        list << "controllers"
-        list << "views" unless @api_only
-        list << "api" if @api_only
-        list << "graphql" if @has_graphql
-        list << "stimulus" if @has_turbo
-        list << "services"
-        list << "jobs"
-        list << "tests" unless @skip_tests
-        list << "devops"
+        list << "models" if File.directory?(Rails.root.join("app/models"))
+        list << "controllers" if File.directory?(Rails.root.join("app/controllers"))
+        list << "views" if !@api_only && File.directory?(Rails.root.join("app/views"))
+        list << "api" if @api_only && File.directory?(Rails.root.join("app/controllers/api"))
+        list << "graphql" if @has_graphql && File.directory?(Rails.root.join("app/graphql"))
+        list << "stimulus" if @has_turbo && File.directory?(Rails.root.join("app/javascript"))
+        list << "services" if File.directory?(Rails.root.join("app/services"))
+        list << "jobs" if File.directory?(Rails.root.join("app/jobs"))
+        
+        if !@skip_tests
+          if @test_framework == 'RSpec' && File.directory?(Rails.root.join("spec"))
+            list << "tests"
+          elsif @test_framework == 'Minitest' && File.directory?(Rails.root.join("test"))
+            list << "tests"
+          end
+        end
+        
+        list << "devops" if File.directory?(Rails.root.join("config"))
         list
       end
     end
