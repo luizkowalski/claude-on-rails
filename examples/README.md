@@ -10,7 +10,7 @@ bundle add claude-on-rails --group development
 rails generate claude_on_rails:swarm
 
 # Start the swarm
-claude-swarm orchestrate
+claude-swarm
 ```
 
 Once the swarm is running, in the Claude interface:
@@ -30,7 +30,7 @@ cd my_api
 bundle add claude-on-rails --group development
 rails generate claude_on_rails:swarm
 
-claude-swarm orchestrate
+claude-swarm
 ```
 
 Then in the Claude interface:
@@ -45,7 +45,7 @@ Then in the Claude interface:
 
 In an existing Rails app with performance issues:
 ```bash
-claude-swarm orchestrate
+claude-swarm
 ```
 
 Then describe the performance issues:
@@ -90,7 +90,7 @@ The swarm will:
 If your project has unique requirements, you can add custom agents:
 
 ```yaml
-# swarm.yml
+# claude-swarm.yml
 instances:
   analytics:
     description: "Analytics and reporting specialist"

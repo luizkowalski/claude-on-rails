@@ -14,6 +14,10 @@ module ClaudeOnRails
       yield(configuration) if block_given?
     end
     
+    def configuration
+      @configuration ||= Configuration.new
+    end
+    
     def analyze_project(root_path = Rails.root)
       ProjectAnalyzer.new(root_path).analyze
     end

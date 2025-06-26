@@ -47,7 +47,7 @@ This will:
 
 ```bash
 # In your Rails project directory
-claude-swarm orchestrate
+claude-swarm
 ```
 
 ### Natural Language Development
@@ -106,7 +106,7 @@ After running the generator, you'll have:
 
 ```
 your-rails-app/
-├── swarm.yml                    # Swarm configuration
+├── claude-swarm.yml             # Swarm configuration
 ├── CLAUDE.md                    # Project-specific Claude config
 └── .claude-on-rails/
     └── prompts/                 # Agent-specific prompts
@@ -120,7 +120,7 @@ your-rails-app/
 
 ### Swarm Configuration
 
-The generated `swarm.yml` can be customized:
+The generated `claude-swarm.yml` can be customized:
 
 ```yaml
 instances:

@@ -1,4 +1,5 @@
 require "rails/generators/base"
+require "claude_on_rails"
 
 module ClaudeOnRails
   module Generators
@@ -35,7 +36,7 @@ module ClaudeOnRails
       
       def create_swarm_config
         say "Generating swarm configuration...", :green
-        template "swarm.yml.erb", "swarm.yml"
+        template "swarm.yml.erb", "claude-swarm.yml"
       end
       
       def create_claude_md
@@ -56,13 +57,11 @@ module ClaudeOnRails
       def display_next_steps
         say "\n✅ ClaudeOnRails swarm configuration created!", :green
         say "\nNext steps:", :yellow
-        say "1. Review and customize swarm.yml for your project"
-        say "2. Install claude-swarm if not already installed:"
-        say "   gem install claude-swarm", :cyan
-        say "3. Start your Rails development swarm:"
-        say "   claude-swarm orchestrate", :cyan
-        say "\nExample usage:"
-        say '   claude "Add user authentication with social login"', :cyan
+        say "1. Review and customize claude-swarm.yml for your project"
+        say "2. Start your Rails development swarm:"
+        say "   claude-swarm", :cyan
+        say "\nOnce the swarm is running, just describe what you want to build:"
+        say '   > Add user authentication with social login', :cyan
         say "\nThe swarm will automatically coordinate the implementation across all layers!"
       end
       
