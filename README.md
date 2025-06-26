@@ -52,20 +52,20 @@ claude-swarm orchestrate
 
 ### Natural Language Development
 
-Just describe what you want to build:
+Once the swarm is running, just describe what you want to build in the Claude interface:
 
-```bash
-# The architect will coordinate the implementation
-claude "Add user authentication with email confirmation"
+```
+> Add user authentication with email confirmation
+[The architect coordinates the implementation across all agents]
 
-# Complex features are automatically broken down
-claude "Create a shopping cart with Stripe payment integration"
+> Create a shopping cart with Stripe payment integration
+[Complex features are automatically broken down and implemented]
 
-# Performance improvements across the stack
-claude "Optimize the dashboard - it's loading too slowly"
+> Optimize the dashboard - it's loading too slowly
+[Performance improvements across the stack]
 
-# API development
-claude "Build a RESTful API for our mobile app with JWT auth"
+> Build a RESTful API for our mobile app with JWT auth
+[API development with authentication]
 ```
 
 The swarm automatically:
@@ -85,9 +85,9 @@ When using AI assistants for Rails development, you typically need to:
 - Remember to implement tests, security, and performance considerations
 
 ### ClaudeOnRails Approach
-With ClaudeOnRails, you simply describe what you want:
-```bash
-claude "Create a user system with social login"
+With ClaudeOnRails, you simply describe what you want in natural language:
+```
+> Create a user system with social login
 ```
 
 The swarm automatically:
