@@ -77,19 +77,28 @@ The swarm automatically:
 
 ## How It's Different
 
-### Traditional Approach (Manual Personas)
-```bash
-claude "/rails generate model User --persona-rails-architect"
-claude "Add validations" --persona-models
-claude "Create controller" --persona-controllers
-claude "Write tests" --persona-testing
-```
+### Traditional Rails Development with AI
+When using AI assistants for Rails development, you typically need to:
+- Manually coordinate different aspects of implementation
+- Switch contexts between models, controllers, views, and tests
+- Ensure consistency across different parts of your application
+- Remember to implement tests, security, and performance considerations
 
-### ClaudeOnRails Approach (Intelligent Swarm)
+### ClaudeOnRails Approach
+With ClaudeOnRails, you simply describe what you want:
 ```bash
 claude "Create a user system with social login"
-# The swarm handles everything automatically
 ```
+
+The swarm automatically:
+- Creates models with proper validations and associations
+- Implements controllers with authentication logic
+- Builds views with forms and UI components
+- Adds comprehensive test coverage
+- Handles security considerations
+- Optimizes database queries
+
+All coordinated by specialized agents working together.
 
 ## Project Structure
 
