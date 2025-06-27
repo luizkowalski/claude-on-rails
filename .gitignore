@@ -43,3 +43,4 @@ doc/
 # Local configuration
 .env
 .env.local.rspec_status
+.rspec_status
