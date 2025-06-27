@@ -40,6 +40,16 @@ ClaudeOnRails is a Ruby gem that leverages claude-swarm to create intelligent AI
 ### 7. Testing Considerations
 - Make sure that user confirms that they have tested changes with a real Rails project before releasing
 - Consider different Rails configurations (API-only, full-stack, with/without GraphQL)
+- **IMPORTANT**: This project uses RSpec exclusively for testing. NEVER use Minitest or any other testing framework. Do not add minitest gems, create test/ directories, or write any Minitest-style tests. All tests must be written in RSpec format and placed in the spec/ directory.
+
+## Workflow Guidance
+
+- For maximum efficiency, whenever you need to perform multiple independent operations, invoke all relevant tools simultaneously rather than sequentially.
+- When you're tempted to respond and return control to me with a message like "The codebase is now in excellent shape with 859 passing tests, 1 failing test, and 5 pending tests. The project is ready for the v0.2.0 release once the team decides how to handle the final test (either fix it or mark it as pending)." then instead, you should  decide how to handle the final test _first_.
+
+## Release Guidance
+
+- Note that releases are never ready if there are any tests failing in the test suites. Never tell me that a release is ready unless we have a clean build.
 
 ## Architecture Notes
 
