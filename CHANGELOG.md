@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.4] - 2025-01-27
+
+### Fixed
+- Fixed CLAUDE.md overwriting user's existing directives
+- Now uses Claude's file reference syntax (@file) to include context
+- Fixed swarm configuration filename (claude-swarm.yml not swarm.yml)
+- Updated documentation to clarify prompts vs commands
+- Improved generator to preserve existing CLAUDE.md content
+
+### Changed
+- ClaudeOnRails context now stored in `.claude-on-rails/context.md`
+- CLAUDE.md uses file references instead of appending content
+- Clearer distinction between shell commands and Claude prompts
+- Updated .gitignore to include `.claude-swarm/` directory
+
 ## [0.1.3] - 2025-01-26
 
 ### Fixed

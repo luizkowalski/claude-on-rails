@@ -107,8 +107,9 @@ After running the generator, you'll have:
 ```
 your-rails-app/
 ├── claude-swarm.yml             # Swarm configuration
-├── CLAUDE.md                    # Project-specific Claude config
+├── CLAUDE.md                    # Project-specific Claude config (imports context.md)
 └── .claude-on-rails/
+    ├── context.md               # Rails project context imported by CLAUDE.md
     └── prompts/                 # Agent-specific prompts
         ├── architect.md
         ├── models.md
@@ -154,8 +155,8 @@ Customize agent behavior by editing prompts in `.claude-on-rails/prompts/`:
 
 - Ruby 2.7+
 - Rails 6.0+
-- Claude Code CLI (`npm install -g @anthropic-ai/claude-code`)
-- claude_swarm gem (automatically installed as a dependency)
+- [claude-swarm](https://github.com/parruda/claude-swarm) gem (automatically installed as a dependency)
+- Claude Code CLI
 
 ## Examples
 
