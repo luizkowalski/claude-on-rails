@@ -1,7 +1,7 @@
 # ClaudeOnRails
 
 [![Gem Version](https://badge.fury.io/rb/claude-on-rails.svg?cache_bust=0.1.4)](https://badge.fury.io/rb/claude-on-rails)
-[![CI](https://github.com/obie/claude-on-rails/actions/workflows/ci.yml/badge.svg)](https://github.com/obie/claude-on-rails/actions/workflows/ci.yml)
+[![CI](https://github.com/obie/claude-on-rails/actions/workflows/main.yml/badge.svg)](https://github.com/obie/claude-on-rails/actions/workflows/main.yml)
 
 
 A Rails development framework that leverages [claude-swarm](https://github.com/parruda/claude-swarm) to create an intelligent team of AI agents specialized in different aspects of Rails development.
