@@ -1,5 +1,9 @@
 # ClaudeOnRails
 
+[![Gem Version](https://badge.fury.io/rb/claude-on-rails.svg?cache_bust=0.1.4)](https://badge.fury.io/rb/claude-on-rails)
+[![CI](https://github.com/obie/claude-on-rails/actions/workflows/ci.yml/badge.svg)](https://github.com/obie/claude-on-rails/actions/workflows/ci.yml)
+
+
 A Rails development framework that leverages [claude-swarm](https://github.com/parruda/claude-swarm) to create an intelligent team of AI agents specialized in different aspects of Rails development.
 
 Instead of managing personas manually, ClaudeOnRails automatically orchestrates a swarm of specialized agents that work together like a real development team. Simply describe what you want to build, and the swarm handles the rest.
@@ -128,7 +132,7 @@ instances:
   architect:
     description: "Your project-specific architect description"
     connections: [models, controllers, custom_agent]
-  
+
   custom_agent:
     description: "Specialized agent for your domain"
     directory: ./app/custom
