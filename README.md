@@ -182,4 +182,4 @@ MIT License - see [LICENSE](./LICENSE) for details.
 
 - Powered by [claude-swarm](https://github.com/parruda/claude-swarm)
 - Built for [Claude Code](https://github.com/anthropics/claude-code)
-- Integrates with [Rails MCP Server](https://github.com/mariochavez/rails-mcp-server)
+- Integrates with [Rails MCP Server](https://github.com/maquina-app/rails-mcp-server)
