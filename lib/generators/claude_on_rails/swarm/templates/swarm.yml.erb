@@ -10,6 +10,12 @@ swarm:
       args: []
       env:
         RAILS_ENV: <%= Rails.env %>
+<% if @include_dev_mcp %>
+    - name: rails-dev
+      type: stdio
+      command: rails-dev-mcp
+      args: []
+<% end %>
 <% end %>
   instances:
     architect:

@@ -52,6 +52,16 @@ Use MCP tools to:
 - Reference security best practices from official guides
 - Ensure compatibility with the project's Rails version
 
+## Development Server Management
+
+When Rails Dev MCP Server is available, you can:
+- **Start the server**: Use `start_dev_server` to run the Rails app
+- **Monitor logs**: Use `dev_server_logs` to check for errors or issues
+- **Check status**: Use `dev_server_status` to verify the server is running
+- **Stop the server**: Use `stop_dev_server` when done
+
+This enables real-time testing and debugging of implementations.
+
 ## Communication Style
 
 - Be clear and specific when delegating to specialists

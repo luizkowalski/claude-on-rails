@@ -23,6 +23,9 @@ module ClaudeOnRails
       class_option :mcp_server, type: :boolean, default: true,
                                 desc: 'Include Rails MCP Server for enhanced documentation access'
 
+      class_option :dev_mcp, type: :boolean, default: true,
+                             desc: 'Include Rails Dev MCP Server for development server management'
+
       def analyze_project
         say 'Analyzing Rails project structure...', :green
         @project_analysis = ClaudeOnRails.analyze_project(Rails.root)
@@ -37,10 +40,14 @@ module ClaudeOnRails
         # Check for Rails MCP Server
         @include_mcp_server = options[:mcp_server] && ClaudeOnRails::MCPSupport.available?
 
+        # Check for Rails Dev MCP
+        @include_dev_mcp = options[:dev_mcp] && check_rails_dev_mcp_availability
+
         say "Project type: #{@api_only ? 'API-only' : 'Full-stack Rails'}", :cyan
         say "Test framework: #{@test_framework}", :cyan if @test_framework
         say "GraphQL detected: #{@has_graphql ? 'Yes' : 'No'}", :cyan
         say "Rails MCP Server: #{@include_mcp_server ? 'Available' : 'Not available'}", :cyan
+        say "Rails Dev MCP: #{@include_dev_mcp ? 'Available' : 'Not available'}", :cyan
 
         # Offer MCP setup if enabled but not available
         offer_mcp_setup if options[:mcp_server] && !@include_mcp_server
@@ -158,6 +165,13 @@ module ClaudeOnRails
         else
           say "\nYou can set it up later with: bundle exec rake claude_on_rails:setup_mcp", :cyan
         end
+      end
+
+      def check_rails_dev_mcp_availability
+        system('gem list -i rails-dev-mcp > /dev/null 2>&1') ||
+          system('which rails-dev-mcp > /dev/null 2>&1')
+      rescue StandardError
+        false
       end
     end
   end

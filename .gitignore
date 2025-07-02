@@ -44,3 +44,6 @@ doc/
 .env
 .env.local.rspec_status
 .rspec_status
+
+# MCP
+rails-dev-mcp/
