@@ -37,12 +37,13 @@ module ClaudeOnRails
     def install_mcp_server
       puts "\n\e[32mInstalling Rails MCP Server globally...\e[0m"
 
-      if system('gem install rails-mcp-server')
+      # Install without documentation to avoid RDoc conflicts
+      if system('gem install rails-mcp-server --no-document')
         puts "\e[32m✓ Rails MCP Server installed successfully!\e[0m"
       else
         puts "\n\e[31m❌ Failed to install Rails MCP Server\e[0m"
         puts "\e[33mPlease try running manually:\e[0m"
-        puts "\e[36m  gem install rails-mcp-server\e[0m"
+        puts "\e[36m  gem install rails-mcp-server --no-document\e[0m"
         exit 1
       end
     end

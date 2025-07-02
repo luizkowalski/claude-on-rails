@@ -6,7 +6,10 @@ module ClaudeOnRails
     class << self
       # Check if Rails MCP Server gem is available on the system
       def available?
-        system('gem list rails-mcp-server -i > /dev/null 2>&1')
+        # Check if the gem is installed
+        system('gem list -i rails-mcp-server > /dev/null 2>&1') ||
+          # Also check if the executable is available
+          system('which rails-mcp-server > /dev/null 2>&1')
       rescue StandardError
         false
       end
@@ -66,7 +69,7 @@ module ClaudeOnRails
 
         unless available?
           instructions << "Install Rails MCP Server:"
-          instructions << "  gem install rails-mcp-server"
+          instructions << "  gem install rails-mcp-server --no-document"
           instructions << ""
         end
 
