@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2025-01-02
+
+### Added
+- Rails MCP Server integration for enhanced documentation access
+- Interactive setup wizard with `rails claude_on_rails:setup_mcp`
+- Status checking with `rails claude_on_rails:mcp_status`
+- Automated MCP setup during swarm generation
+- Post-install message with setup instructions
+- Comprehensive SETUP.md documentation
+
+### Changed
+- Rails MCP Server is now a Ruby gem (not npm package)
+- MCP configuration automatically added to swarm.yml when available
+- All agent prompts enhanced with MCP-specific guidance
+- Simplified setup process - just press Y during generation
+
+### Fixed
+- RDoc version conflicts during gem installation
+- Use --no-document flag to avoid documentation generation issues
+- Improved MCP availability detection
+
 ## [0.1.5] - 2025-01-27
 
 ### Fixed
