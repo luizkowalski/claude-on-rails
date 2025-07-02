@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    claude-on-rails (0.1.4)
+    claude-on-rails (0.1.5)
       claude_swarm (~> 0.1)
       rails (>= 6.0)
 

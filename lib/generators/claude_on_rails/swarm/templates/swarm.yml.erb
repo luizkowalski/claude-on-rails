@@ -2,6 +2,15 @@ version: 1
 swarm:
   name: "<%= Rails.application.class.module_parent_name %> Rails Development Team"
   main: architect
+<% if @include_mcp_server %>
+  mcps:
+    - name: rails
+      type: stdio
+      command: rails-mcp-server
+      args: []
+      env:
+        RAILS_ENV: <%= Rails.env %>
+<% end %>
   instances:
     architect:
       description: "Rails architect coordinating <%= @api_only ? 'API' : 'full-stack' %> development for <%= Rails.application.class.module_parent_name %>"

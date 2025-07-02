@@ -37,6 +37,20 @@ Gem::Specification.new do |spec|
 
   # Development dependencies are specified in Gemfile
 
-  # For more information and examples about making a new gem, check out our
-  # guide at: https://bundler.io/guides/creating_gem.html
+  spec.post_install_message = <<~MESSAGE
+    ========================================================================
+    🚀 ClaudeOnRails has been successfully installed!
+
+    For enhanced Rails documentation access, you can set up Rails MCP Server:
+      bundle exec rake claude_on_rails:setup_mcp
+
+    This optional setup will:
+      • Install the Rails MCP Server gem
+      • Enable real-time documentation access for your AI agents
+
+    Get started:
+      rails generate claude_on_rails:swarm
+
+    ========================================================================
+  MESSAGE
 end

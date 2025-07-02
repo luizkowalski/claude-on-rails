@@ -11,6 +11,11 @@ AllCops:
 plugins:
   - rubocop-rake
 
+# Allow hyphenated filename to match gem name
+Naming/FileName:
+  Exclude:
+    - 'lib/claude-on-rails.rb'
+
 
 # Relaxed metrics for DSL-heavy library code
 Metrics/MethodLength:
