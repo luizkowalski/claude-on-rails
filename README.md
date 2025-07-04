@@ -162,7 +162,7 @@ Customize agent behavior by editing prompts in `.claude-on-rails/prompts/`:
 
 ## Enhanced Documentation with Rails MCP Server
 
-ClaudeOnRails integrates with [Rails MCP Server](https://github.com/mariochavez/rails-mcp-server) to provide your AI agents with real-time access to Rails documentation and best practices.
+ClaudeOnRails integrates with [Rails MCP Server](https://github.com/maquina-app/rails-mcp-server) to provide your AI agents with real-time access to Rails documentation and best practices.
 
 ### Benefits
 
