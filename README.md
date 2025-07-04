@@ -48,6 +48,8 @@ This will:
 - Create agent-specific prompts
 - Set up your development environment
 
+For detailed setup instructions, see [SETUP.md](./SETUP.md).
+
 ## Usage
 
 ### Start Your Development Swarm
