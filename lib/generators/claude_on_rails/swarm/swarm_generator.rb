@@ -89,7 +89,22 @@ module ClaudeOnRails
 
       def create_agent_prompts
         say 'Setting up agent-specific prompts...', :green
-        directory 'prompts', '.claude-on-rails/prompts'
+
+        dest_dir = '.claude-on-rails/prompts'
+        empty_directory dest_dir
+
+        Dir[File.join(self.class.source_root, 'prompts', '*')].each do |source_path|
+          filename = File.basename(source_path)
+          relative_source = File.join('prompts', filename)
+          destination_filename = filename.sub(/\.erb\z/, '')
+          destination_path = File.join(dest_dir, destination_filename)
+
+          if filename.end_with?('.erb')
+            template relative_source, destination_path
+          else
+            copy_file relative_source, destination_path
+          end
+        end
       end
 
       def update_gitignore
